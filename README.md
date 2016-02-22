@@ -6,11 +6,92 @@ A starting point for an HTTP accessible Merchant API using ASP.Net Web API. Curr
 - Query availability of Items
 - Submit Orders
 
-**Data Format**
+#### Data Format
 
 `JSON` is lightweight (e.g. less "verbose" than `XML`) and versatile format. It is _relatively_ easier to parse, serialize/deserialize by clients. 
 
-**Authentication**
+**Sample Request: `POST api/order/{merchantId}`**
+
+```
+{
+	"MerchantId": "MID001",
+	"OrderItems": [{
+		"QtyOrdered": 1,
+		"Name": "Gilded Item 2",
+		"Description": "Item 2 description",
+		"Price": 199
+	},
+	{
+		"QtyOrdered": 2,
+		"Name": "Gilded Item 3",
+		"Description": "Item 3 description",
+		"Price": 299
+	},
+	{
+		"QtyOrdered": 3,
+		"Name": "Gilded Item 4",
+		"Description": "Item 4 description",
+		"Price": 399
+	},
+	{
+		"QtyOrdered": 4,
+		"Name": "Gilded Item 5",
+		"Description": "Item 5 description",
+		"Price": 499
+	}],
+	"TaxTotal": 0,
+	"ShippingTotal": 0,
+	"DiscountTotal": 0,
+	"MerchantOrderReference": "1871",
+	"OrderId": "18018",
+	"OrderDate": 1456129268
+}
+```
+
+**Sample Api Response**
+
+```
+{
+	"transactionId": "1871-TID829",
+	"submittedOrder": {
+		"merchantId": "MID001",
+		"orderItems": [{
+			"qtyOrdered": 1,
+			"name": "Gilded Item 2",
+			"description": "Item 2 description",
+			"price": 199
+		},
+		{
+			"qtyOrdered": 2,
+			"name": "Gild ed Item 3",
+			"description": "Item 3 description",
+			"price": 299
+		},
+		{
+			"qtyOrdered": 3,
+			"name": "Gilded Item 4",
+			"description": "Item 4 description",
+			"price": 399
+		},
+		{
+			"qtyOrdered": 4,
+			"name": "Gilded Item 5",
+			"description": " Item 5 description",
+			"price": 499
+		}],
+		"taxTotal": 0,
+		"shippingTotal": 0,
+		"discountTotal": 0,
+		"merchantOrderReference": "1871",
+		"orderId": "18018",
+		"orderDate": 1456129268
+	},
+	"status": "Success",
+	"message": "Successfully recieved 1871, dated 2/22/2016 12:21:08 AM, valued at 3990"
+}
+```
+
+#### Authentication
 
 `JWT` ([JSON Web Token](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)) was chosen (over relatively simpler methods, such as `BASIC`) for added security and versatility. The protocol allows 2 parties (via a shared secret) to digitally sign tokens thereby uniquely identifying "issuer" and "audience", as well as the integrity of the contents of the message. While commonly used in `Headers`, it can just as easily be used in (larger) payloads (e.g. request body). Both authentication and message integrity are realized in one protocol. Expirations limit the lifetime of JWTs as well.
 
@@ -21,7 +102,7 @@ Example:
 `Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJpQXBwcyIsImlhdCI6MTQ..`
 
 
-**Orders and Inventory**
+#### Orders and Inventory
 
 Inventory is always challenging, and several approaches are possible in the Api:
 
