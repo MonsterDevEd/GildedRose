@@ -113,7 +113,7 @@ Example:
 
 `Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJpQXBwcyIsImlhdCI6MTQ..`
 
-**A Note On Authentiation**
+**A Note On Authentication**
 
 The API currently defines a `user` as _clients of the Api_ (merchants). In a real world scenario `users` can also mean _end users_ (of merchants). Depending on this definition and implementation details, different approaches are possible:
 
