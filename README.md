@@ -7,6 +7,7 @@ A starting point for an HTTP accessible Merchant API using ASP.Net Web API. Curr
 - Submit Orders
 
 **Data Format**
+
 `JSON` is lightweight (e.g. less "verbose" than `XML`) and versatile format. It is _relatively_ easier to parse, serialize/deserialize by clients. 
 
 **Authentication**
