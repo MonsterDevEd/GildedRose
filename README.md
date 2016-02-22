@@ -6,6 +6,9 @@ A starting point for an HTTP accessible Merchant API using ASP.Net Web API. Curr
 - Query availability of Items
 - Submit Orders
 
+**Data Format**
+`JSON` is lightweight (e.g. less "verbose" than `XML`) and versatile format. It is _relatively_ easier to parse, serialize/deserialize by clients. 
+
 **Authentication**
 
 `JWT` ([JSON Web Token](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)) was chosen (over relatively simpler methods, such as `BASIC`) for added security and versatility. The protocol allows 2 parties (via a shared secret) to digitally sign tokens thereby uniquely identifying "issuer" and "audience", as well as the integrity of the contents of the message. While commonly used in `Headers`, it can just as easily be used in (larger) payloads (e.g. request body). Both authentication and message integrity are realized in one protocol. Expirations limit the lifetime of JWTs as well.
