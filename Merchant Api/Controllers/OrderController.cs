@@ -61,13 +61,13 @@ namespace Merchant_Api.Controllers
         /// </summary>
         /// <param name="order">Submitted order to evaluate</param>
         /// <returns></returns>
-        private async Task<bool> ValidateOrder(OrderModel order)
+        private async Task<bool> ValidateOrder(IOrder order)
         {
             bool result = false;
 
             await Task.Factory.StartNew(() =>
             {
-                if (order.OrderItems.Count > 3)
+                if (order.GetGrandTotal() > 800)
                     result = true;
             });
 
