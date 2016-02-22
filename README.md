@@ -10,9 +10,15 @@ A starting point for an HTTP accessible Merchant API using ASP.Net Web API. Curr
 
 `JSON` is lightweight (e.g. less "verbose" than `XML`) and versatile format. It is _relatively_ easier to parse, serialize/deserialize by clients. 
 
-**Sample Request: `POST api/order/{merchantId}`**
+**Sample Request**
 
 ```
+//Request header
+POST /api/order/MID001
+Content-Type: application/json
+Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ey........
+....
+
 {
 	"MerchantId": "MID001",
 	"OrderItems": [{
@@ -51,6 +57,12 @@ A starting point for an HTTP accessible Merchant API using ASP.Net Web API. Curr
 **Sample Api Response**
 
 ```
+//Response header
+HTTP/1.1 201 Created
+Content-Type: application/json; charset=utf-8
+Location: http://localhost:55774/api/order/MID001
+...
+
 {
 	"transactionId": "1871-TID829",
 	"submittedOrder": {
