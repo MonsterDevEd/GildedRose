@@ -128,7 +128,7 @@ Less "white box" than the above  where an _end user_ will have to authorize Gild
 Inventory is always challenging, and several approaches are possible in the Api:
 
 1. provide only available items in the inventory feed (implementation detail)
-2. provide an actual count and let merchants decide how they want to handle
+2. provide an actual count and/or indicator and let merchants decide how they want to handle
 3. provide a "query" endoint for the merchant to use to check items availability "as needed" 
 4. (dis)allow backorders 
 
@@ -177,7 +177,7 @@ To enable/use:
 
 After cloning the solution, Visual Studio 2015 should be able to obtain all the (Nuget) packages for the solution. As mentioned in the **Prerequisites** this includes [JWT .Net Library](https://www.nuget.org/packages/JWT/)
 
-- Build the solution (both projets)
+- Build the solution (both projects)
 
 
 ## Running the tests
