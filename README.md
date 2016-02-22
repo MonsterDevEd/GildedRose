@@ -136,7 +136,7 @@ Items `1` and `2` can be implemented in the `GET api/inventory/getInventory/{mer
 
 Item `3` via `POST api/inventory/checkInventory/{merchantId}` for one or more items
 
-Item `4` can be handled at `POST api/order/{merchantId}` , along with order validation, whether or not _backorders_ are "enabled" for a merchant (currently disallowed)
+Item `4` can be handled at `POST api/order/{merchantId}` , along with order validation, whether or not _backorders_ are "enabled" for a merchant
 
 
 ## Getting Started
