@@ -113,6 +113,15 @@ Example:
 
 `Authorization: Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJpQXBwcyIsImlhdCI6MTQ..`
 
+**A Note On Authentiation**
+
+The API currently defines a `user` as _clients of the Api_ (merchants). In a real world scenario `users` can also mean _end users_ (of merchants). Depending on this definition and implementation details, different approaches are possible:
+
+- Gilded Rose Maintains a directory for both types<br/>
+A sample implementation could be providing an endpoint for _end user_ authentication, responding with a _token_ (Jwt) for the merchant to add for every `POST api/order/{merchantId}`
+
+- Leverage 3rd party Logins (e.g. Google Login)<br />
+Less "white box" than the above  where an _end user_ will have to authorize Gilded Rose application to his/her Google account profile. Merchants will `redirect` _end users_ to Gilded Rose web application to proceed with ordering.
 
 #### Orders and Inventory
 
