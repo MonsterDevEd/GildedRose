@@ -37,9 +37,9 @@ Item `4` can be handled at `POST api/order/{merchantId}` , along with order vali
 
 This is a Visual Studio solution with 2 projects
 
-1. **Merchant Api**<br />
+1. **[Merchant Api](https://github.com/EdSF/GildedRose/tree/master/Merchant%20Api)**<br />
 The Asp.Net MVC/Web Api Application
-2. **Merchant Api.Tests**<br />
+2. **[Merchant Api.Tests](https://github.com/EdSF/GildedRose/tree/master/Merchant%20Api.Tests)**<br />
 Unit tests for the Merchant Api
 
 
